@@ -147,7 +147,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 AUTH_USER_MODEL = 'user.User'
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'register'
+LOGIN_REDIRECT_URL = 'customer_register'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
