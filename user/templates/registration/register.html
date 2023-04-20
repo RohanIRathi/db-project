@@ -1,0 +1,21 @@
+{% extends 'menu.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container w-auto">
+        <form method="post">
+            {% crispy form %}
+            {% crispy u_form %}
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Log in</a>
+            </small>
+            {% if mode == 'customer' %}
+            <span style='margin: 0 10px;'>|</span>
+            <small class="text-muted">
+                Want to start selling? <a class="ml-2" href="{% url 'supplier_register' %}">Register Here</a>
+            </small>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

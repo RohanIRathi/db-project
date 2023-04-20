@@ -1,0 +1,10 @@
+{% extends "menu.html" %}
+{% block content %}
+    <h2>You have been logged out</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <input class="btn btn-info" type="submit" onclick="window.location='{% url 'login' %}' ; return false;" value="Log In Again"> | 
+            {% comment %}<input class="btn btn-info" type="submit" onclick="window.location='{% url 'home' %}' ; return false;" value="Go To Home Page">{% endcomment %}
+        </small>
+    </div>
+{% endblock content %}

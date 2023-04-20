@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block navbar %}
+<header class="site-header">
+  <nav class="navbar sticky-top navbar-expand-lg justify-content-between navbar-dark bg-primary flex-row flex-wrap">
+    <a class="navbar-brand col-md-auto p-3 fs-2 fw-bold" href="#">Amazonia</a>
+    <button
+      class="navbar-toggler col-md-auto m-2"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="true"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse p-2 navbar-collapse justify-content-end flex-row" id="navbarSupportedContent">
+      <ul class="navbar-nav flex-row flex-wrap">
+    	{% comment %}<li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>{% endcomment %}
+        {% if user.is_authenticated %}
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2 m-2 fs-5 btn btn-primary" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2 m-2 fs-5 btn btn-primary" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item col-6 col-md-auto">
+          <a class="nav-link p-2 m-2 fs-5 btn btn-primary" href="{% url 'customer_register' %}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  <br /><br />
+</header>
+{% endblock navbar %}
