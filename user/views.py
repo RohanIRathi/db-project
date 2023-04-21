@@ -3,8 +3,15 @@ from django.contrib import messages
 
 from .forms import CustomUserCreationForm, CustomerDetailsForm, SupplierDetailsForm
 from .models import User, Customer
+from product.models import Product
+from features.models import Cart
 
 # Create your views here.
+
+def home(request):
+	products = Product.objects.all().order_by('qty')[:20]
+	cart_count = Cart.objects.filter(userid=Customer.objects.get(userid=User.objects.get(email=request.user))).count()
+	return render(request, 'home/home.html', {'products': products, 'cart_count': cart_count})
 
 def register(request, **kwargs):
 	mode = kwargs.get('mode')
