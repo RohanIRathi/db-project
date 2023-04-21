@@ -48,9 +48,7 @@ INSTALLED_APPS = [
     'tickets',
     'user',
     'crispy_forms',
-    'bootstrap5',
     "crispy_bootstrap5",
-    'django_bootstrap5',
     'fontawesomefree',
 ]
 
