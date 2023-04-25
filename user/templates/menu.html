@@ -17,14 +17,16 @@
     <div class="collapse p-2 navbar-collapse justify-content-end flex-row" id="navbarSupportedContent">
       <ul class="navbar-nav flex-row flex-wrap">
         {% if user.is_authenticated %}
+        {% if request.session.user_type == 'customer' %}
         <li class="nav-item col-6 col-md-auto h-100">
           <a class="nav-link m-2 p-2 fs-5 btn btn-primary position-relative" href="#">
             <i class="fa-solid fa-cart-shopping"></i> Cart
             <span class="fs-6 text-white position-absolute top-0 start-100 p-1 translate-middle bg-danger rounded-circle">
-              {{ cart_count }}
+              {{ request.session.cart_count }}
             </span>
           </a>
         </li>
+        {% endif %}
         <li class="nav-item col-6 col-md-auto">
           <div class="btn-group m-2">
             <button type="button" class="btn btn-primary pt-0 pb-0"><a class="nav-link fs-5" href="#"><i class="fa-solid fa-user"></i> Profile</a></button>
@@ -47,6 +49,5 @@
       </ul>
     </div>
   </nav>
-  <br /><br />
 </header>
 {% endblock navbar %}

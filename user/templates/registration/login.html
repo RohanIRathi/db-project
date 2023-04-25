@@ -1,7 +1,7 @@
 {% extends 'menu.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="container w-50">
+    <div class="container w-75">
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
