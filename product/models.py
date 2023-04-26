@@ -7,7 +7,7 @@ class Category(models.Model):
     category = models.CharField(unique=True, max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'category'
 
 class Product(models.Model):
@@ -19,5 +19,5 @@ class Product(models.Model):
     qty = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'product'

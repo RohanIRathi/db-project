@@ -19,9 +19,9 @@
         {% if user.is_authenticated %}
         {% if request.session.user_type == 'customer' %}
         <li class="nav-item col-6 col-md-auto h-100">
-          <a class="nav-link m-2 p-2 fs-5 btn btn-primary position-relative" href="#">
+          <a class="nav-link m-2 p-2 fs-5 btn btn-primary position-relative" href="{% url 'view_cart' %}">
             <i class="fa-solid fa-cart-shopping"></i> Cart
-            <span class="fs-6 text-white position-absolute top-0 start-100 p-1 translate-middle bg-danger rounded-circle">
+            <span id="cartcount" class="fs-6 text-white position-absolute top-0 start-100 p-1 translate-middle bg-danger rounded-circle">
               {{ request.session.cart_count }}
             </span>
           </a>

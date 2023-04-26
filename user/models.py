@@ -23,7 +23,7 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = []
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'user'
     
     def __str__(self):
@@ -46,7 +46,7 @@ class Address(models.Model):
     _zip = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'address'
         unique_together = (('userid', 'street', 'city', 'state', '_zip'),)
 
@@ -54,7 +54,7 @@ class Supplier(models.Model):
     userid = models.OneToOneField(User, models.DO_NOTHING, db_column='userid', primary_key=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'supplier'
 
 class Customer(models.Model):
@@ -63,5 +63,5 @@ class Customer(models.Model):
     lname = models.CharField(max_length=15, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'customer'

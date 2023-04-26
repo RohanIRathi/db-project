@@ -10,7 +10,7 @@ class Cart(models.Model):
     productid = models.ForeignKey(Product, models.DO_NOTHING, db_column='productid')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'cart'
         unique_together = (('userid', 'productid'),)
 
@@ -20,6 +20,6 @@ class Bookmark(models.Model):
     productid = models.ForeignKey(Product, models.DO_NOTHING, db_column='productid')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'bookmark'
         unique_together = (('userid', 'productid'),)

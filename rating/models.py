@@ -12,6 +12,6 @@ class Rating(models.Model):
     feedback = models.CharField(max_length=256, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'rating'
         unique_together = (('userid', 'productid'),)
