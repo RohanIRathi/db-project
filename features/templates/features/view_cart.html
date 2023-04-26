@@ -4,7 +4,7 @@
 	<div class="container">
 	{% for item in cart %}
 		<div class="card p-3 my-1 d-flex flex-row justify-content-between align-items-center">
-			<div class="d-flex flex-row align-items-center">
+			<a class="d-flex flex-row align-items-center text-decoration-none text-dark w-75" href="{% url 'product_details' item.productid.productid %}">
 				<i class="fa-regular fa-image mx-3 fa-2xl"></i>
 				<div>
 					<div class="card-title">
@@ -14,7 +14,7 @@
 					${{ item.productid.price }}
 					</div>
 				</div>
-			</div>
+			</a>
 			<div>
 				<button type="button" class="btn-close m-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove from cart" />
 			</div>

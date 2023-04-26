@@ -95,6 +95,9 @@ class CustomerDetailsForm(forms.ModelForm):
 		return customer
 
 class SupplierDetailsForm(forms.ModelForm):
+	helper = FormHelper()
+	helper.form_tag = False
+	
 	class Meta:
 		model = Supplier
 		fields = tuple()

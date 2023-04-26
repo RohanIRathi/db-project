@@ -34,7 +34,10 @@
               <i class="nav-link fa-solid fa-caret-down"></i>
             </button>
             <ul class="dropdown-menu p-0">
-              <li class="h-100 p-0"><a class="nav-link btn btn-primary w-100 h-100 p-3" href={% url 'logout' %}><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+              {% if request.session.user_type == 'supplier' %}
+              <li class="h-100 p-0"><a class="nav-link btn btn-primary w-100 h-100 p-3 rounded-0" href={% url 'add_product' %}><i class="fa-solid fa-gifts"></i> Add a Product</a></li>
+              {% endif %}
+              <li class="h-100 p-0"><a class="nav-link btn btn-primary w-100 h-100 p-3 rounded-0" href={% url 'logout' %}><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             </ul>
           </div>
         </li>

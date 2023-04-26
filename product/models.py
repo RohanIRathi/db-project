@@ -9,6 +9,9 @@ class Category(models.Model):
     class Meta:
         managed = True
         db_table = 'category'
+    
+    def __str__(self):
+        return self.category
 
 class Product(models.Model):
     productid = models.AutoField(primary_key=True)
@@ -21,3 +24,6 @@ class Product(models.Model):
     class Meta:
         managed = True
         db_table = 'product'
+    
+    def __str__(self):
+        return self.product_name
