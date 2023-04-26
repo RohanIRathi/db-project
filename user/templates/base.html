@@ -73,6 +73,19 @@
 				};
 			};
 		</script>
+		<script>
+			var callDeleteURL = function(url, id) {
+				const xhttp = new XMLHttpRequest();
+				xhttp.open('POST', url);
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+				xhttp.onload = () => {
+					location.reload();
+				}
+
+				xhttp.send("item_id=" + id + "&path=" + window.location.pathname);
+			};
+		</script>
 		{% if user.is_authenticated %}
 		{% if request.session.user_type == 'customer' %}
 		<script>

@@ -16,7 +16,7 @@
 				</div>
 			</a>
 			<div>
-				<button type="button" class="btn-close m-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove from cart" />
+				<button type="button" onclick='callDeleteURL("{% url 'remove_from_cart' %}", {{ item.id }})' class="btn-close m-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Remove from cart" />
 			</div>
 		</div>
 	{% endfor %}

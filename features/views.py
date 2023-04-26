@@ -1,13 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.decorators import user_passes_test
 
 from .models import Cart, Bookmark
 from user.models import User, Customer
+from user.helpers import userIsCustomer
 from product.models import Product
 
 # Create your views here.
+
+@csrf_exempt
+def remove_from_cart(request):
+	if request.method == 'POST':
+		Cart.objects.get(pk=request.POST['item_id']).delete()
+		return redirect(request.POST['path'])
 
 def view_cart(request):
 	user = Customer.objects.get(userid=User.objects.get(email=request.user))
@@ -27,6 +35,7 @@ def add_to_cart(request):
 		return HttpResponse("Product Added to Cart", status=200)
 	return HttpResponse("Method not allowed", status=405)
 
+@user_passes_test(userIsCustomer)
 def get_cart_count(request):
 	cart_count = Cart.objects.filter(userid=Customer.objects.get(userid=User.objects.get(email=request.user))).count()
 	request.session['cart_count'] = cart_count
